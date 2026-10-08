@@ -8,19 +8,18 @@ extended closures during macro crises (the 2020 COVID shutdown, the 2022
 economic collapse).
 
 The short answer is: the strategies don't transfer. But the reason why is more
-interesting than just "the market is different."
+interesting.
 
 ---
 
 ## What I found
 
-**The CSE's 2.24% round-trip broker fee structurally destroys algorithmic edge
+**The CSE's 2.24% round-trip broker fee renders moot any algorithmic edge
 at any frequency above monthly trading.**
 
-This is the core finding. It's not that the signals are wrong on the CSE — some
-of them are actually quite strong in gross terms. The overnight drift anomaly on
+This is the core finding. Some of the signals are actually quite strong in                                            gross terms. The overnight drift anomaly on
 JKH produces a theoretical CAGR of +52% per year. But at daily trading frequency,
-the 2.24% round-trip fee consumes the entire return before it reaches you.
+the 2.24% round-trip fee consumes the entire return before it reaches the trader.
 
 The same strategies on SPY, where commission-free execution is available:
 
@@ -32,29 +31,28 @@ The same strategies on SPY, where commission-free execution is available:
 
 ---
 
-## The overnight drift thing is genuinely interesting
+## The overnight drift shows promise
 
 Every single rupee of cumulative JKH price appreciation over 8+ years happened
 between close and the next morning's open. Trading during market hours — buying
 at open, selling at close — would have lost 32% over the same period.
 
-This isn't noise. It's a consistent, directional bias across thousands of days.
 The academic explanation is that institutional order flow concentrates in the
 overnight session, away from the public order book, while retail selling pressure
-absorbs intraday. I can see the effect clearly in the data, I just can't extract
-it at retail commissions.
+absorbs intraday. The effect is clearly seen in the data, but cannot be extract                                     at retail commissions.
 
 ---
 
-## How I tested
+## tested methodology
 
 **Look-ahead prevention:** Every signal reads bar T's closing data. All execution
 happens at bar T+1's open. Nothing reads "the future."
 
 **Mark-to-market equity curves:** Sharpe and Sortino are computed on a real
 daily equity series — the portfolio value is marked to the current close while
-in a position, and flat otherwise. This matters more than it sounds. Computing
-Sharpe on per-trade returns and multiplying by sqrt(252) inflates the number
+in a position, and flat otherwise. 
+
+Computing Sharpe on per-trade returns and multiplying by sqrt(252) inflates the number
 significantly if you're only in 20–30 trades per year. My v1 backtest had this
 bug and the inflated Sharpe looked great until I caught it.
 
