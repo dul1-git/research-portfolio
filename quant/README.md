@@ -7,8 +7,7 @@ relatively illiquid, has a high retail broker fee structure, and goes through
 extended closures during macro crises (the 2020 COVID shutdown, the 2022
 economic collapse).
 
-The short answer is: the strategies don't transfer. But the reason why is more
-interesting.
+The short answer is: the strategies don't transfer.
 
 ---
 
